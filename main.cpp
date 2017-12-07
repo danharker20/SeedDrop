@@ -21,20 +21,21 @@ int main(int argc, char *argv[])
 	Uint32 frameStart; // huge int
 	int frameTime;
 
-	game = new Game;
+	game = new Game; //make new game
 
 	int total_ticks = 0; //used to keep score
 
 	Sounds effects; // background music
 	effects.background(1000); // passing in amount of loops
 
-	game->init("Title here", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 832, 640, false);
+	game->init("Title here", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 832, 640, false); //init window
 
 
 	int powerTime = 0;
 	int powerUp2Time = 0;
 	unsigned int gameTime = 0;
-
+	
+	//game loop
 	while (game->isRunning())
 	{
 		frameStart = SDL_GetTicks();
@@ -49,15 +50,14 @@ int main(int argc, char *argv[])
 		{
 			SDL_Delay(frameDelay - frameTime); // keeps constant character movement speed for diff computers
 		}
-
-
+		
 		total_ticks += frameTime; //adding to total score
 
 		//cout << "Total ticks: " << total_ticks << endl; // for me - prints out current total ticks
 	}
 
 	
-	game->clean();
+	game->clean(); //clean game
 
 	return 0;
 
